@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import EventCard from '../components/EventCard.vue'
-import EventCard2 from '@/components/EventCard2.vue';
-import type { EventItem } from '@/type';
-import { type Ref, ref } from 'vue';
+import EventCard2 from '@/components/EventCard2.vue'
+import type { EventItem } from '@/type'
+import { type Ref, ref } from 'vue'
 import EventService from '@/services/EventService'
 
 const events: Ref<Array<EventItem>> = ref([])
 
-EventService.getEvent().then((response) =>{
+EventService.getEvent().then((response) => {
   events.value = response.data
 })
 </script>
@@ -29,7 +29,7 @@ EventService.getEvent().then((response) =>{
   align-items: center;
 }
 
-.events2{
+.events2 {
   display: flex;
   flex-direction: column;
   align-items: center;
