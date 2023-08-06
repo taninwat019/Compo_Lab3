@@ -1,12 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import EventListView from '../views/EventListView.vue'
+import PassengerListView from '../views/PassengerListView.vue'
 import AboutView from '../views/AboutView.vue'
 import CategoryView from '../views/CategoryView.vue'
 import StudentView from '../views/StudentView.vue'
-import EventDetailView from '../views/event/EventDetailView.vue'
-import EventEditView from '@/views/event/EventEditView.vue'
-import EventRegisterView from '@/views/event/EventRegisterView.vue'
-import EventLayoutView from '@/views/event/EventLayoutView.vue'
+import PassengerDetailView from '../views/passenger/PassengerDetailView.vue'
+import PassengerEditView from '@/views/passenger/PassengerEditView.vue'
+import PassengerRegisterView from '@/views/passenger/PassengerRegisterView.vue'
+import PassengerLayoutView from '@/views/passenger/PassengerLayoutView.vue'
 import NotFoundView from '@/views/NotFoundView.vue'
 import NetworkErrorView from '@/views/NetworkErrorView.vue'
 
@@ -15,8 +15,8 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'event-list',
-      component: EventListView,
+      name: 'passenger-list',
+      component: PassengerListView,
       props: (route) => ({page: parseInt(route.query?.page as string || '1'), pageSize: parseInt(route.query?.page as string || '2')})
     },
     {
@@ -35,27 +35,27 @@ const router = createRouter({
       component: StudentView
     },
     {
-      path: '/event/:id',
-      name: 'event-layout',
-      component: EventLayoutView,
+      path: '/passenger/:id',
+      name: 'passenger-layout',
+      component: PassengerLayoutView,
       props: true,
       children: [
         {
           path: '',
-          name: 'event-detail',
-          component: EventDetailView,
+          name: 'passenger-detail',
+          component: PassengerDetailView,
           props: true
         },
         {
           path: 'edit',
-          name: 'event-edit',
-          component: EventEditView,
+          name: 'passenger-edit',
+          component: PassengerEditView,
           props: true
         },
         {
           path: 'register',
-          name: 'event-register',
-          component: EventRegisterView,
+          name: 'passenger-register',
+          component: PassengerRegisterView,
           props: true
         }
       ]

@@ -30,4 +30,4 @@ const events: Ref<Array<EventItem>> = ref([])
   align-items: center;
   text-align: right;
 }
-</style>
+</style>@/stores/EventService
