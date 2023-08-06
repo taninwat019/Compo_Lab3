@@ -1,61 +1,47 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-// import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
   <header>
-
-    <nav>
-      <RouterLink :to="{name: 'passenger-list'}">Home</RouterLink>
-      <RouterLink :to="{name: 'about'}">About</RouterLink>
-      <RouterLink :to="{name: 'category'}">Category</RouterLink>
-      <RouterLink :to="{name: 'student'}">Student</RouterLink>
-      <!-- <RouterLink :></RouterLink> -->
-    </nav>
-
+    <div class="wrapper">
+      <nav>
+        <RouterLink to="/">Home</RouterLink>
+        <RouterLink to="/about">About</RouterLink>
+      </nav>
+    </div>
   </header>
   <RouterView />
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
-
+<style scoped>
 header {
   line-height: 1.5;
   max-height: 100vh;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+nav {
+  width: 100%;
+  font-size: 12px;
+  text-align: center;
+  margin-top: 2rem;
 }
 
-h4 {
-  font-size: 20px;
+nav a.router-link-exact-active {
+  color: var(--color-text);
 }
 
-/* nav a.router-link-exact-active:hover {
+nav a.router-link-exact-active:hover {
   background-color: transparent;
-} */
+}
 
+nav a {
+  display: inline-block;
+  padding: 0 1rem;
+  border-left: 1px solid var(--color-border);
+}
+
+nav a:first-of-type {
+  border: 0;
+}
 </style>
