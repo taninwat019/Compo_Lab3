@@ -1,9 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import EventListView from '../views/EventListView.vue'
-import AboutView from '../views/AboutView.vue'
 import EventListView2 from '../views/EventListView2.vue'
+import AboutView from '../views/AboutView.vue'
 import StudentListView from '../views/StudentListView.vue'
-import EventDetailView from '../views/EventDetailView.vue'
+import EventDetailView from "../views/event/EventDetailView.vue"
+import EventEditView from "../views/event/EventEditView.vue"
+import EventRegisterView from "../views/event/EventRegisterView.vue"
+import EventLayoutView from '../views/event/EventLayoutView.vue'
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -14,12 +18,9 @@ const router = createRouter({
       props : (route) => ({page: parseInt(route.query?.page as string || '1'),limit: parseInt(route.query?.limit as string || '2')})
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: AboutView
+      path: '/student',
+      name: 'student-list',
+      component: StudentListView
     },
     {
       path: '/event2',
@@ -27,15 +28,40 @@ const router = createRouter({
       component: EventListView2
     },
     {
-      path: '/student',
-      name: 'student',
-      component: StudentListView
+      path: '/about',
+      name: 'about',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: AboutView
     },
+
     {
-      path: '/event/id',
-      name: 'event-detail',
-      component: EventDetailView,
-      props: true
+      path: '/event/:id',
+      name: 'event-layout',
+      component: EventLayoutView,
+      props: true,
+
+      children: [
+        { 
+          path: '',
+          name: 'event-detail',
+          component: EventDetailView,
+          props: true
+      },
+        {
+          path: 'edit',
+          name: 'event-edit',
+          props: true,
+          component: EventEditView
+      },
+        {
+          path: 'register',
+          name: 'event-register',
+          props: true,
+          component: EventRegisterView
+        }
+      ]
     }
   ]
 })
