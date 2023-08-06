@@ -28,7 +28,7 @@ PassengerService.getPassengerById(Number(props.id))
 
 <template>
   <div v-if="passenger">
-    <h1>{{ passenger.first_name }}</h1>
+    <h1>{{ passenger.first_name }} {{ passenger.last_name }}</h1>
     <div id="nav">
         <RouterLink :to="{name: 'passenger-detail', params: { id }}">Details</RouterLink> 
         |

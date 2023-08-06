@@ -12,6 +12,10 @@ defineProps({
 </script>
 <template>
     <div v-if="passenger">
-        <p>{{ passenger.first_name }}</p>
+        <p>{{ passenger.first_name }} {{ passenger.last_name }}</p>
+        <p>{{ passenger.email }}</p>
+        <p>From <b>{{ passenger.Source }}</b> to <b>{{ passenger.Destination }}</b>
+        on {{ passenger.travelDate }}</p>
+        <p></p>
     </div>
 </template>
