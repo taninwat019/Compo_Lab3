@@ -29,6 +29,8 @@ EventService.getEventById(Number(props.id))
     console.log(error)
     if (error.response && error.response.status === 404) {
       router.push({ name: '404-resource', params: { resource: 'PassengerId' } })
+    }else{
+      router.push({name: 'network-error'})
     }
   })
 </script>
